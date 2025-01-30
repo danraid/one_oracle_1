@@ -4,13 +4,22 @@ let listaAmigos = [];
 // Função para adicionar um amigo à lista
 function adicionarAmigo() {
     let inputNome = document.getElementById("amigo");
-    let nome = inputNome.value;
+    let nome = inputNome.value.trim(); // Remove espaços extras
+
+    // Validação: impede nomes vazios
+    if (nome === "") {
+        alert("Por favor, insira um nome válido.");
+        return;
+    }
 
     // Adiciona o nome à lista
     listaAmigos.push(nome);
 
     // Atualiza a exibição da lista
     atualizarLista();
+
+    // Limpa o campo de entrada
+    inputNome.value = "";
 }
 
 // Função para atualizar a lista na tela
