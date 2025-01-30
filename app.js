@@ -1,5 +1,8 @@
 // Lista de amigos
 let listaAmigos = [];
+let totalSorteios = 0; // Contador de sorteios
+let listaSorteios = []; // Histórico de sorteios
+let ultimoTamanhoLista = 0; // Guarda o tamanho da lista antes do último sorteio
 
 // Função para adicionar um amigo à lista
 function adicionarAmigo() {
@@ -12,6 +15,12 @@ function adicionarAmigo() {
     // Validação: impede nomes vazios, muito curtos ou apenas símbolos
     if (!regexNomeValido.test(nome)) {
         alert("Por favor, insira um nome válido com pelo menos 2 letras.");
+        return;
+    }
+
+    // Impede nomes duplicados na lista
+    if (listaAmigos.includes(nome)) {
+        alert("Este nome já foi adicionado! Insira um nome diferente.");
         return;
     }
 
@@ -33,7 +42,7 @@ function atualizarLista() {
     listaAmigos.forEach((amigo, index) => {
         let li = document.createElement("li");
         li.textContent = `${index + 1}. ${amigo}`; // Adiciona numeração aos nomes
-        li.classList.add("item-lista"); // Classe CSS para melhor visualização
+        li.classList.add("item-lista");
         ulLista.appendChild(li);
     });
 }
@@ -48,9 +57,25 @@ function sortearAmigo() {
     let indiceSorteado = Math.floor(Math.random() * listaAmigos.length);
     let amigoSorteado = listaAmigos[indiceSorteado];
 
-    // Exibe o nome sorteado na lista de resultados
-    let resultado = document.getElementById("resultado");
-    resultado.innerHTML = `<li>🎉 Amigo sorteado: <strong>${amigoSorteado}</strong> 🎉</li>`;
-}
+    totalSorteios++; // Incrementa o número de sorteios
+    let mensagem = `🎲 Sorteio #${totalSorteios}: <strong>${amigoSorteado}</strong>`;
 
+    // Verifica se novos participantes foram adicionados após o último sorteio
+    let novosParticipantes = listaAmigos.slice(ultimoTamanhoLista);
+    if (totalSorteios > 1 && novosParticipantes.length > 0) {
+        mensagem += ` (Novos participantes: ${novosParticipantes.join(", ")})`;
+    }
+
+    // Atualiza o tamanho da lista antes do próximo sorteio
+    ultimoTamanhoLista = listaAmigos.length;
+
+    // Salva no histórico de sorteios
+    listaSorteios.push(amigoSorteado);
+
+    // Exibe o histórico de sorteios
+    let resultado = document.getElementById("resultado");
+    let li = document.createElement("li");
+    li.innerHTML = mensagem;
+    resultado.appendChild(li);
+}
 
