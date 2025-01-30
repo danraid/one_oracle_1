@@ -160,3 +160,26 @@ ul {
 .button-draw:hover {
     background-color: var(--color-button-hover);
 }
+
+/* Estilo para a lista de amigos */
+.name-list {
+    width: 80%;
+    max-width: 600px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.name-list li {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px;
+    border-bottom: 1px solid var(--color-tertiary);
+    text-align: center;
+}
+
+.name-list li:last-child {
+    border-bottom: none;
+}

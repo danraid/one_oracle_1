@@ -30,10 +30,12 @@ function atualizarLista() {
     let ulLista = document.getElementById("listaAmigos");
     ulLista.innerHTML = ""; // Limpa a lista antes de atualizar
 
-    listaAmigos.forEach((amigo) => {
+    listaAmigos.forEach((amigo, index) => {
         let li = document.createElement("li");
-        li.textContent = amigo;
+        li.textContent = `${index + 1}. ${amigo}`; // Adiciona numeração aos nomes
+        li.classList.add("item-lista"); // Classe CSS para melhor visualização
         ulLista.appendChild(li);
     });
 }
+
 
