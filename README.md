@@ -31,11 +31,11 @@ Este é um projeto simples e interativo para adicionar amigos a uma lista e sort
 
 1. **Clone o repositório:**
    ```sh
-   git clone https://github.com/danraid/amigo-secreto.git
+   git clone https://github.com/danraid/one_oracle_1
    ```
 2. **Acesse o diretório do projeto:**
    ```sh
-   cd amigo-secreto
+   cd one_oracle_1
    ```
 3. **Abra o arquivo `index.html` no navegador.**  
 
@@ -78,7 +78,7 @@ Este projeto está sob a licença **MIT**. Sinta-se à vontade para modificá-lo
 
 ## ✨ Autor
 
-Feito com ❤️ por [Danraid](https://github.com/danraid).  
+Feito com ❤️ por [Daniel Raid](https://github.com/danraid).  
 Se gostou deste projeto, deixe uma ⭐ no repositório! 🚀
 
 
