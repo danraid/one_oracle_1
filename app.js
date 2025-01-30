@@ -6,9 +6,12 @@ function adicionarAmigo() {
     let inputNome = document.getElementById("amigo");
     let nome = inputNome.value.trim(); // Remove espaços extras
 
-    // Validação: impede nomes vazios
-    if (nome === "") {
-        alert("Por favor, insira um nome válido.");
+    // Expressão regular para validar apelidos (mínimo 2 letras, não apenas símbolos)
+    let regexNomeValido = /^[A-Za-zÀ-ÖØ-öø-ÿ]{2,}[A-Za-zÀ-ÖØ-öø-ÿ0-9 ]*$/;
+
+    // Validação: impede nomes vazios, muito curtos ou apenas símbolos
+    if (!regexNomeValido.test(nome)) {
+        alert("Por favor, insira um nome válido com pelo menos 2 letras.");
         return;
     }
 
@@ -33,3 +36,4 @@ function atualizarLista() {
         ulLista.appendChild(li);
     });
 }
+
