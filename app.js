@@ -38,4 +38,19 @@ function atualizarLista() {
     });
 }
 
+// Função para sortear um amigo da lista
+function sortearAmigo() {
+    if (listaAmigos.length === 0) {
+        alert("Adicione pelo menos um nome antes de sortear!");
+        return;
+    }
+
+    let indiceSorteado = Math.floor(Math.random() * listaAmigos.length);
+    let amigoSorteado = listaAmigos[indiceSorteado];
+
+    // Exibe o nome sorteado na lista de resultados
+    let resultado = document.getElementById("resultado");
+    resultado.innerHTML = `<li>🎉 Amigo sorteado: <strong>${amigoSorteado}</strong> 🎉</li>`;
+}
+
 
